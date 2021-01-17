@@ -1,0 +1,16 @@
+.empty-message
+{
+    color: red;
+}
+.result-message
+{
+    color: green;
+}
+.empty-input
+{
+    border-color: red;
+}
+.good-input
+{
+    border-color: green;
+}
