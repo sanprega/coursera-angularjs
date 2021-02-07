@@ -1,0 +1,7 @@
+<ol class="list-group">
+  <li class="list-group-item" ng-repeat="item in narrow.items">
+    <div class=itemName>{{item.short_name}}: {{item.name}}</div>
+    <div class=itemDescription>{{item.description}}</div>
+    <button class="btn btn-secondaty btn-sm" ng-click="narrow.onRemove({index: $index});">Don't want this one!</button>
+  </li>
+</ol>
