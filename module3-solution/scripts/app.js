@@ -10,15 +10,16 @@
 
   function NarrowItDownAppController($scope, MenuSearchService) {
     var narrow = this;
-    narrow.items = [];
+
     narrow.searchTerm = "";
     narrow.clickButton = function() {
-      if (narrow.searchTerm === undefined || narrow.searchTerm === null) {
-        //do nothing
+      if (narrow.searchTerm === undefined || narrow.searchTerm === null || narrow.searchTerm === "") {
+        narrow.items = [];
       } else {
         var promise = MenuSearchService.getMatchedMenuItems(narrow.searchTerm);
         promise.then(function(response) {
-            narrow.items = response;
+
+            narrow.item_number = narrow.items.lenght;
           })
           .catch(function(error) {
             console.log(error);
@@ -28,6 +29,9 @@
     narrow.removeItem = function(index) {
       narrow.items.splice(index, 1);
     };
+    narrow.checkList = function() {
+      return typeof narrow.items !== 'undefined' && narrow.items.length === 0
+    }
   }
   MenuSearchService.$inject = ['$http', 'apiPath']
 
