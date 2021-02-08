@@ -18,7 +18,7 @@
       } else {
         var promise = MenuSearchService.getMatchedMenuItems(narrow.searchTerm);
         promise.then(function(response) {
-
+            narrow.items = response;
             narrow.item_number = narrow.items.lenght;
           })
           .catch(function(error) {
