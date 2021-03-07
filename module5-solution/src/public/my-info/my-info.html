@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>User info</h2>
+  <div ng-if="myinfoCtrl.userData === undefined" class="alert alert-danger" role="alert">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></div>
+  <div ng-if="myinfoCtrl.userData !== undefined" class="">
+    <h3>{{myinfoCtrl.userData.lastName}}, {{myinfoCtrl.userData.firstName}}</h3>
+    <p><strong>Email: </strong>{{myinfoCtrl.userData.email}}</p>
+    <p><strong>Phone: </strong>{{myinfoCtrl.userData.phone}}</p>
+    <p><strong>Fav dish: </strong>{{myinfoCtrl.userData.favDish}}</p>
+    <menu-item menu-item="myinfoCtrl.menuItem">
+    </menu-item>
+  </div>
+</div>

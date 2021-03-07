@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Suscribe to our newsletter!</h2>
+  <p>Please, enter your data to suscribe.</p>
+  <form name="signUpForm" novalidate class="">
+
+    <div class="form-group">
+      <input type="text" class="form-control" name="firstName" placeholder="Name" ng-model="signupCtrl.data.firstName" required>
+      <small class="help-block" ng-if="signUpForm.firstName.$invalid && signUpForm.firstName.$touched">Please, enter a name.</small>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" name="lastName" placeholder="Last name" ng-model="signupCtrl.data.lastName" required>
+      <small class="help-block" ng-if="signUpForm.lastName.$invalid && signUpForm.lastName.$touched">Please, enter a last name.</small>
+    </div>
+
+    <div class="form-group">
+      <input type="email" class="form-control" name="email" placeholder="Email" ng-model="signupCtrl.data.email" required>
+      <small class="help-block" ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">Please, enter a valid email.</small>
+    </div>
+
+    <div class="form-group">
+      <input type="tel" class="form-control" name="phone" placeholder="Phone" ng-model="signupCtrl.data.phone" required pattern="(\d{3})-(\d{3})-(\d{4})">
+      <small class="help-block" ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">Please, enter a valid phone number (###-###-####).</small>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="fav" placeholder="Fav dish" ng-model="signupCtrl.data.favDish">
+      <small class="help-block" ng-if="!signupCtrl.dishExists">No such menu number exists.</small>
+    </div>
+
+
+    <div class="form-group">
+      <button class="btn btn-default" ng-disabled="signUpForm.$invalid" ng-click="signupCtrl.submit()">Submit</button>
+    </div>
+    <div ng-if="signupCtrl.dataSaved" class="alert alert-success" role="alert">Your information has been saved.</div>
+
+
+  </form>
+</div>
